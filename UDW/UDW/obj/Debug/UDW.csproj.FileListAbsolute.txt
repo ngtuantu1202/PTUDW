@@ -77,3 +77,5 @@ C:\Users\ACER\OneDrive\Tài liệu\GitHub\PTUDW\UDW\UDW\obj\Debug\UDW.csproj.C
 C:\Users\ACER\OneDrive\Tài liệu\GitHub\PTUDW\UDW\UDW\obj\Debug\UDW.csproj.CopyComplete
 C:\Users\ACER\OneDrive\Tài liệu\GitHub\PTUDW\UDW\UDW\obj\Debug\UDW.dll
 C:\Users\ACER\OneDrive\Tài liệu\GitHub\PTUDW\UDW\UDW\obj\Debug\UDW.pdb
+C:\Users\ACER\OneDrive\Tài liệu\GitHub\PTUDW\UDW\UDW\bin\EntityFramework.dll
+C:\Users\ACER\OneDrive\Tài liệu\GitHub\PTUDW\UDW\UDW\bin\EntityFramework.xml
