@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace MyClass.Model
 {
-    [Table("Catagories")]
-    public class Catagories
+    [Table("Categories")]
+    public class Categories
     {
         [Key]
         public int Id { get; set; }
