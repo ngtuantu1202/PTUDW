@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34031.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanHang", "BanHang\BanHang.csproj", "{4D957186-698E-444E-8E04-A7C63AC5176A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClass", "MyClass\MyClass.csproj", "{2E4151F6-A2F4-4C4A-8CA8-81ED3CC9B8ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D957186-698E-444E-8E04-A7C63AC5176A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D957186-698E-444E-8E04-A7C63AC5176A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D957186-698E-444E-8E04-A7C63AC5176A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D957186-698E-444E-8E04-A7C63AC5176A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4151F6-A2F4-4C4A-8CA8-81ED3CC9B8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4151F6-A2F4-4C4A-8CA8-81ED3CC9B8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4151F6-A2F4-4C4A-8CA8-81ED3CC9B8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4151F6-A2F4-4C4A-8CA8-81ED3CC9B8ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54C3054B-371E-4E11-8152-E6BEBE13BD5E}
+	EndGlobalSection
+EndGlobal

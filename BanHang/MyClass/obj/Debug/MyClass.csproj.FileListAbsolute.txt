@@ -1,0 +1,12 @@
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\MyClass.dll.config
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\MyClass.dll
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\MyClass.pdb
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\EntityFramework.dll
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\EntityFramework.xml
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\obj\Debug\MyClass.csproj.AssemblyReference.cache
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\obj\Debug\MyClass.csproj.CoreCompileInputs.cache
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\obj\Debug\MyClass.csproj.CopyComplete
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\obj\Debug\MyClass.dll
+C:\Users\Nguyen Tuan Tu\Documents\GitHub\PTUDW\BanHang\MyClass\obj\Debug\MyClass.pdb
