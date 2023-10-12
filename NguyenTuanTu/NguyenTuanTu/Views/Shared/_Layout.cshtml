@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <style>
+        
+        header {
+            background-color: #006994; 
+            color: white; 
+            padding: 10px;
+        }
+
+      
+        footer {
+            background-color: black; 
+            color: white; 
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+           
+        </div>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+         
+        </div>
+    </footer>
+</body>
+</html>
