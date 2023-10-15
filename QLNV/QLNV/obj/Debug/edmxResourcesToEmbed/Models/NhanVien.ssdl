@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNhanVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="manhanvien" />
+    </Key>
+    <Property Name="manhanvien" Type="int" Nullable="false" />
+    <Property Name="tennhanvien" Type="nvarchar" MaxLength="50" />
+    <Property Name="ngaysinh" Type="date" />
+    <Property Name="luong" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="hinhanh" Type="varbinary(max)" />
+    <Property Name="maphong" Type="int" />
+  </EntityType>
+  <EntityType Name="PhongBang">
+    <Key>
+      <PropertyRef Name="maphong" />
+    </Key>
+    <Property Name="maphong" Type="int" Nullable="false" />
+    <Property Name="tenphong" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__NhanVien__maphon__267ABA7A">
+    <End Role="PhongBang" Type="Self.PhongBang" Multiplicity="0..1" />
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBang">
+        <PropertyRef Name="maphong" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="maphong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLNhanVienModelStoreContainer">
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhongBang" EntityType="Self.PhongBang" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__NhanVien__maphon__267ABA7A" Association="Self.FK__NhanVien__maphon__267ABA7A">
+      <End Role="PhongBang" EntitySet="PhongBang" />
+      <End Role="NhanVien" EntitySet="NhanVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

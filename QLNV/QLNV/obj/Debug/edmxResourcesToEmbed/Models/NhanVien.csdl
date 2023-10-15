@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNhanVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="manhanvien" />
+    </Key>
+    <Property Name="manhanvien" Type="Int32" Nullable="false" />
+    <Property Name="tennhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="luong" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="hinhanh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="maphong" Type="Int32" />
+    <NavigationProperty Name="PhongBang" Relationship="Self.FK__NhanVien__maphon__267ABA7A" FromRole="NhanVien" ToRole="PhongBang" />
+  </EntityType>
+  <EntityType Name="PhongBang">
+    <Key>
+      <PropertyRef Name="maphong" />
+    </Key>
+    <Property Name="maphong" Type="Int32" Nullable="false" />
+    <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__maphon__267ABA7A" FromRole="PhongBang" ToRole="NhanVien" />
+  </EntityType>
+  <Association Name="FK__NhanVien__maphon__267ABA7A">
+    <End Role="PhongBang" Type="Self.PhongBang" Multiplicity="0..1" />
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBang">
+        <PropertyRef Name="maphong" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="maphong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLNhanVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="PhongBangs" EntityType="Self.PhongBang" />
+    <AssociationSet Name="FK__NhanVien__maphon__267ABA7A" Association="Self.FK__NhanVien__maphon__267ABA7A">
+      <End Role="PhongBang" EntitySet="PhongBangs" />
+      <End Role="NhanVien" EntitySet="NhanViens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

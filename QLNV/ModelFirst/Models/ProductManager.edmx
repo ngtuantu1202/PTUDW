@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProductManager.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProductManagerStoreContainer">
+    <EntitySet Name="PhongBans" EntityType="ProductManager.Store.PhongBans" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NhanViens" EntityType="ProductManager.Store.NhanViens" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PhongBanNhanVien" EntityType="ProductManager.Store.PhongBanNhanVien" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_PhongBanNhanVien_PhongBan" Association="ProductManager.Store.FK_PhongBanNhanVien_PhongBan">
+      <End Role="PhongBan" EntitySet="PhongBans" />
+      <End Role="PhongBanNhanVien" EntitySet="PhongBanNhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhongBanNhanVien_NhanVien" Association="ProductManager.Store.FK_PhongBanNhanVien_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="PhongBanNhanVien" EntitySet="PhongBanNhanVien" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PhongBans">
+    <Key>
+      <PropertyRef Name="maphong" />
+    </Key>
+    <Property Name="maphong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenphong" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhanViens">
+    <Key>
+      <PropertyRef Name="manhanvien" />
+    </Key>
+    <Property Name="manhanvien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tennhanvien" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ngaysinh" Type="datetime" Nullable="false" />
+    <Property Name="luong" Type="decimal" Nullable="false" />
+    <Property Name="hinhanh" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="maphong" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhongBanNhanVien">
+    <Key>
+      <PropertyRef Name="PhongBans_maphong" />
+      <PropertyRef Name="NhanViens_manhanvien" />
+    </Key>
+    <Property Name="PhongBans_maphong" Type="int" Nullable="false" />
+    <Property Name="NhanViens_manhanvien" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PhongBanNhanVien_PhongBan">
+    <End Role="PhongBan" Type="ProductManager.Store.PhongBans" Multiplicity="1" />
+    <End Role="PhongBanNhanVien" Type="ProductManager.Store.PhongBanNhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="maphong" />
+      </Principal>
+      <Dependent Role="PhongBanNhanVien">
+        <PropertyRef Name="PhongBans_maphong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhongBanNhanVien_NhanVien">
+    <End Role="PhongBanNhanVien" Type="ProductManager.Store.PhongBanNhanVien" Multiplicity="*" />
+    <End Role="NhanVien" Type="ProductManager.Store.NhanViens" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="manhanvien" />
+      </Principal>
+      <Dependent Role="PhongBanNhanVien">
+        <PropertyRef Name="NhanViens_manhanvien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ProductManager" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ProductManagerContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PhongBans" EntityType="ProductManager.PhongBan" />
+          <EntitySet Name="NhanViens" EntityType="ProductManager.NhanVien" />
+          <AssociationSet Name="PhongBanNhanVien" Association="ProductManager.PhongBanNhanVien">
+            <End Role="PhongBan" EntitySet="PhongBans" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PhongBan">
+          <Key>
+            <PropertyRef Name="maphong" />
+          </Key>
+          <Property Name="maphong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenphong" Type="String" Nullable="false" />
+          <NavigationProperty Name="NhanViens" Relationship="ProductManager.PhongBanNhanVien" FromRole="PhongBan" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="manhanvien" />
+          </Key>
+          <Property Name="manhanvien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tennhanvien" Type="String" Nullable="false" />
+          <NavigationProperty Name="PhongBans" Relationship="ProductManager.PhongBanNhanVien" FromRole="NhanVien" ToRole="PhongBan" />
+          <Property Name="ngaysinh" Type="DateTime" Nullable="false" />
+          <Property Name="luong" Type="Decimal" Nullable="false" />
+          <Property Name="hinhanh" Type="String" Nullable="false" />
+          <Property Name="maphong" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PhongBanNhanVien">
+          <End Type="ProductManager.PhongBan" Role="PhongBan" Multiplicity="*" />
+          <End Type="ProductManager.NhanVien" Role="NhanVien" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProductManagerStoreContainer" CdmEntityContainer="ProductManagerContainer">
+    <EntitySetMapping Name="PhongBans">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductManager.PhongBan)">
+        <MappingFragment StoreEntitySet="PhongBans">
+          <ScalarProperty Name="maphong" ColumnName="maphong" />
+          <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="IsTypeOf(ProductManager.NhanVien)">
+        <MappingFragment StoreEntitySet="NhanViens">
+          <ScalarProperty Name="manhanvien" ColumnName="manhanvien" />
+          <ScalarProperty Name="tennhanvien" ColumnName="tennhanvien" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="luong" ColumnName="luong" />
+          <ScalarProperty Name="hinhanh" ColumnName="hinhanh" />
+          <ScalarProperty Name="maphong" ColumnName="maphong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PhongBanNhanVien" TypeName="ProductManager.PhongBanNhanVien" StoreEntitySet="PhongBanNhanVien">
+      <EndProperty Name="PhongBan">
+        <ScalarProperty Name="maphong" ColumnName="PhongBans_maphong" />
+      </EndProperty>
+      <EndProperty Name="NhanVien">
+        <ScalarProperty Name="manhanvien" ColumnName="NhanViens_manhanvien" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
