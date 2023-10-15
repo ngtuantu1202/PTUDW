@@ -6,8 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BanHang.Library;
 using MyClass.DAO;
 using MyClass.Model;
+using UDW.Library;
 
 namespace BanHang.Areas.Admin.Controllers
 {
@@ -46,6 +48,8 @@ namespace BanHang.Areas.Admin.Controllers
         // GET: Admin/Category/Create
         public ActionResult Create()
         {
+            ViewBag.ListCat = new SelectList(categoriesDAO.getList("Index"), "Id", "Name");
+            ViewBag.ListOrder = new SelectList(categoriesDAO.getList("Index"), "Order", "Name");
             return View();
         }
 
@@ -53,12 +57,31 @@ namespace BanHang.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Categories categories)
         {
-            if (ModelState.IsValid)
+            //Xu ly tu dong: CreateAt
+            categories.CreateAt = DateTime.Now;
+            //Xu ly tu dong: UpdateAt
+            categories.UpdateAt = DateTime.Now;
+            ////Xu ly tu dong: ParentId
+            if (categories.ParentID == null)
             {
-                categoriesDAO.Insert(categories);
-                return RedirectToAction("Index");
+                categories.ParentID = 0;
             }
-            return View(categories);
+            //Xu ly tu dong: Order
+            if (categories.Order == null)
+            {
+                categories.Order = 1;
+            }
+            else
+            {
+                categories.Order += 1;
+            }
+            //Xu ly tu dong: Slug
+            categories.Slug = XString.Str_Slug(categories.Name);
+
+            //Chen them dong cho DB
+            categoriesDAO.Insert(categories);
+            return RedirectToAction("Index");
+            //return View(categories);
         }
 
         //////////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +139,39 @@ namespace BanHang.Areas.Admin.Controllers
             categoriesDAO.Delete(categories);
 
             return RedirectToAction("Index");
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        //STATUS
+        // GET: Admin/Category/Status/5
+        public ActionResult Status(int? id)
+        {
+            if (id == null)
+            {
+                //thong bao that bai
+                TempData["message"] = new XMessage ("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                //truy van id
+                Categories categories = categoriesDAO.getRow(id);
+
+                //chuyen doi trang thai cua Satus tu 1<->2
+                categories.Status = (categories.Status == 1) ? 2 : 1;
+
+                //cap nhat gia tri UpdateAt
+                categories.UpdateAt = DateTime.Now;
+
+                //cap nhat lai DB
+                categoriesDAO.Update(categories);
+
+                //thong bao cap nhat trang thai thanh cong
+                TempData["message"] = TempData["message"] = new XMessage("success", "Cập nhật trạng thái thành công");
+
+                return RedirectToAction("Index");
+            }    
+            
         }
     }
 }
