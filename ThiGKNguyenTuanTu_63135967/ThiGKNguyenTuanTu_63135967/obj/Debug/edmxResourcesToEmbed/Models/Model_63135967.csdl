@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThiGK_63135967Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="CONGTY">
+    <Key>
+      <PropertyRef Name="MaCT" />
+    </Key>
+    <Property Name="MaCT" Type="Int32" Nullable="false" />
+    <Property Name="TenCT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DICHVUs" Relationship="Self.FK__DICHVU__MaCT__4CA06362" FromRole="CONGTY" ToRole="DICHVU" />
+  </EntityType>
+  <EntityType Name="DICHVU">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="Int32" Nullable="false" />
+    <Property Name="TenDV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <Property Name="GiaDV" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaCT" Type="Int32" />
+    <NavigationProperty Name="CONGTY" Relationship="Self.FK__DICHVU__MaCT__4CA06362" FromRole="DICHVU" ToRole="CONGTY" />
+  </EntityType>
+  <Association Name="FK__DICHVU__MaCT__4CA06362">
+    <End Role="CONGTY" Type="Self.CONGTY" Multiplicity="0..1" />
+    <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONGTY">
+        <PropertyRef Name="MaCT" />
+      </Principal>
+      <Dependent Role="DICHVU">
+        <PropertyRef Name="MaCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThiGK_63135967Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CONGTies" EntityType="Self.CONGTY" />
+    <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
+    <AssociationSet Name="FK__DICHVU__MaCT__4CA06362" Association="Self.FK__DICHVU__MaCT__4CA06362">
+      <End Role="CONGTY" EntitySet="CONGTies" />
+      <End Role="DICHVU" EntitySet="DICHVUs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

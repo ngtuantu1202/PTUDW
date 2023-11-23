@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using BanHang.Library;
 using MyClass.DAO;
 using MyClass.Model;
-using UDW.Library;
 
 namespace BanHang.Areas.Admin.Controllers
 {
@@ -281,7 +280,7 @@ namespace BanHang.Areas.Admin.Controllers
 
         //////////////////////////////////////////////////////////////////////////////////////
         //RECOVER
-        // GET: Admin/Category/Recover/5
+        // GET: Admin/Category/Recover/8
         public ActionResult Recover(int? id)
         {
             if (id == null)

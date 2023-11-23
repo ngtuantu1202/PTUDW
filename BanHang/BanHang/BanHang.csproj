@@ -129,6 +129,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SupplierController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,6 +153,18 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Public\css\jquery.dataTables.min.css" />
+    <Content Include="Public\img\supplier\cart.jpg" />
+    <Content Include="Public\img\supplier\Fevicon.png" />
+    <Content Include="Public\img\supplier\login.jpg" />
+    <Content Include="Public\img\supplier\logo.png" />
+    <Content Include="Public\img\supplier\r1.jpg" />
+    <Content Include="Public\img\supplier\r2.jpg" />
+    <Content Include="Public\img\supplier\r3.jpg" />
+    <Content Include="Public\img\supplier\r4.jpg" />
+    <Content Include="Public\img\supplier\r5.jpg" />
+    <Content Include="Public\img\supplier\r6.jpg" />
+    <Content Include="Public\img\supplier\r7.jpg" />
+    <Content Include="Public\img\supplier\r8.jpg" />
     <Content Include="Public\js\jquery.dataTables.min.js" />
     <Content Include="Public\css\main.css" />
     <Content Include="Public\css\style.css" />
@@ -2661,6 +2674,11 @@
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Supplier\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

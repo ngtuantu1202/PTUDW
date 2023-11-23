@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ThiGK_63135967Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="CONGTY">
+          <Key>
+            <PropertyRef Name="MaCT" />
+          </Key>
+          <Property Name="MaCT" Type="int" Nullable="false" />
+          <Property Name="TenCT" Type="nvarchar" MaxLength="255" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DICHVU">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="int" Nullable="false" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="255" />
+          <Property Name="NgayCapNhat" Type="date" />
+          <Property Name="GiaDV" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="255" />
+          <Property Name="MaCT" Type="int" />
+        </EntityType>
+        <Association Name="FK__DICHVU__MaCT__4CA06362">
+          <End Role="CONGTY" Type="Self.CONGTY" Multiplicity="0..1" />
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONGTY">
+              <PropertyRef Name="MaCT" />
+            </Principal>
+            <Dependent Role="DICHVU">
+              <PropertyRef Name="MaCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThiGK_63135967ModelStoreContainer">
+          <EntitySet Name="CONGTY" EntityType="Self.CONGTY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DICHVU__MaCT__4CA06362" Association="Self.FK__DICHVU__MaCT__4CA06362">
+            <End Role="CONGTY" EntitySet="CONGTY" />
+            <End Role="DICHVU" EntitySet="DICHVU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThiGK_63135967Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="CONGTY">
+          <Key>
+            <PropertyRef Name="MaCT" />
+          </Key>
+          <Property Name="MaCT" Type="Int32" Nullable="false" />
+          <Property Name="TenCT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DICHVUs" Relationship="Self.FK__DICHVU__MaCT__4CA06362" FromRole="CONGTY" ToRole="DICHVU" />
+        </EntityType>
+        <EntityType Name="DICHVU">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="Int32" Nullable="false" />
+          <Property Name="TenDV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+          <Property Name="GiaDV" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="AnhDaiDien" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaCT" Type="Int32" />
+          <NavigationProperty Name="CONGTY" Relationship="Self.FK__DICHVU__MaCT__4CA06362" FromRole="DICHVU" ToRole="CONGTY" />
+        </EntityType>
+        <Association Name="FK__DICHVU__MaCT__4CA06362">
+          <End Role="CONGTY" Type="Self.CONGTY" Multiplicity="0..1" />
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONGTY">
+              <PropertyRef Name="MaCT" />
+            </Principal>
+            <Dependent Role="DICHVU">
+              <PropertyRef Name="MaCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThiGK_63135967Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CONGTies" EntityType="Self.CONGTY" />
+          <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
+          <AssociationSet Name="FK__DICHVU__MaCT__4CA06362" Association="Self.FK__DICHVU__MaCT__4CA06362">
+            <End Role="CONGTY" EntitySet="CONGTies" />
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThiGK_63135967ModelStoreContainer" CdmEntityContainer="ThiGK_63135967Entities">
+          <EntitySetMapping Name="CONGTies">
+            <EntityTypeMapping TypeName="ThiGK_63135967Model.CONGTY">
+              <MappingFragment StoreEntitySet="CONGTY">
+                <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+                <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DICHVUs">
+            <EntityTypeMapping TypeName="ThiGK_63135967Model.DICHVU">
+              <MappingFragment StoreEntitySet="DICHVU">
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="GiaDV" ColumnName="GiaDV" />
+                <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+                <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

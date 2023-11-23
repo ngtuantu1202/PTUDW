@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KT0720_63135967Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LOP">
+    <Key>
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MaLop" Type="Int32" Nullable="false" />
+    <Property Name="TenLop" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SINHVIENs" Relationship="Self.FK__SINHVIEN__MaLop__4BAC3F29" FromRole="LOP" ToRole="SINHVIEN" />
+  </EntityType>
+  <EntityType Name="SINHVIEN">
+    <Key>
+      <PropertyRef Name="MaSV" />
+    </Key>
+    <Property Name="MaSV" Type="Int32" Nullable="false" />
+    <Property Name="HoSV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TenSV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="AnhSV" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaLop" Type="Int32" />
+    <NavigationProperty Name="LOP" Relationship="Self.FK__SINHVIEN__MaLop__4BAC3F29" FromRole="SINHVIEN" ToRole="LOP" />
+  </EntityType>
+  <Association Name="FK__SINHVIEN__MaLop__4BAC3F29">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="SINHVIEN">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Model_63135967Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LOPs" EntityType="Self.LOP" />
+    <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
+    <AssociationSet Name="FK__SINHVIEN__MaLop__4BAC3F29" Association="Self.FK__SINHVIEN__MaLop__4BAC3F29">
+      <End Role="LOP" EntitySet="LOPs" />
+      <End Role="SINHVIEN" EntitySet="SINHVIENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

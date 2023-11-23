@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThiGK_63135967ModelStoreContainer" CdmEntityContainer="ThiGK_63135967Entities">
+    <EntitySetMapping Name="CONGTies">
+      <EntityTypeMapping TypeName="ThiGK_63135967Model.CONGTY">
+        <MappingFragment StoreEntitySet="CONGTY">
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DICHVUs">
+      <EntityTypeMapping TypeName="ThiGK_63135967Model.DICHVU">
+        <MappingFragment StoreEntitySet="DICHVU">
+          <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+          <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="GiaDV" ColumnName="GiaDV" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

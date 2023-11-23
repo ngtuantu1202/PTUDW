@@ -1,0 +1,59 @@
+﻿@model ThiGKNguyenTuanTu_63135967.Models.DICHVU
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/PageLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DICHVU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaDV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaDV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhDaiDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhDaiDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONGTY.TenCT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONGTY.TenCT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
+
+    <link href="~/Content/styleAdmin.css" rel="stylesheet" />
+</head>
+<body style="margin-top: 0px; text-align: center;">
+    <div id="banner" style="top: 0px; text-align: center; position: absolute; ">HỆ THỐNG QUẢN LÝ THÔNG TIN DỊCH VỤ</div>
+    <div id="menu" style="margin-top: 20px; text-align: center;">
+        <div>
+            @Html.ActionLink("GIỚI THIỆU", "../GioiThieu_63135967/Index", new { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("THÊM MỚI", "../DichVu_63135967/Create", new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("DANH SÁCH", "../DichVu_63135967/Index", new { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("TÌM KIẾM", "../DichVu_63135967/TimKiem2TC", new { @class = "a" })
+            <hr style="display: block;border-top: 1px solid aqua;  margin: 8px 0;" />
+        </div>
+        <div>
+            <p align="right">  @ViewBag.NguoiDung</p>
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        </div>
+</body>
+</html>
