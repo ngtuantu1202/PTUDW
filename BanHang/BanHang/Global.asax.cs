@@ -18,9 +18,9 @@ namespace BanHang
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        //public void Session_Start()
-        //{
-        //    Session["UserID"] = "1";
-        //}
+        public void Session_Start()
+        {
+            Session["UserID"] = "1";
+        }
     }
 }
