@@ -83,7 +83,7 @@ namespace BanHang.Areas.Admin.Controllers
                 var img = Request.Files["img"];//lay thong tin file
                 if (img.ContentLength != 0)
                 {
-                    string[] FileExtentions = new string[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    string[] FileExtentions = new string[] { ".jpg", ".webp", ".jpeg", ".png", ".gif" };
                     //kiem tra tap tin co hay khong
                     if (FileExtentions.Contains(img.FileName.Substring(img.FileName.LastIndexOf("."))))//lay phan mo rong cua tap tin
                     {
@@ -162,7 +162,7 @@ namespace BanHang.Areas.Admin.Controllers
                         System.IO.File.Delete(DelPath);
                     }
 
-                    string[] FileExtentions = new string[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    string[] FileExtentions = new string[] { ".jpg", ".webp", ".jpeg", ".png", ".gif" };
                     //kiem tra tap tin co hay khong
                     if (FileExtentions.Contains(img.FileName.Substring(img.FileName.LastIndexOf("."))))//lay phan mo rong cua tap tin
                     {
